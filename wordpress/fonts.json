@@ -1,0 +1,44 @@
+{
+ "young-serif": {
+  "family": "Young Serif",
+  "id": 1364,
+  "faces": [
+   {
+    "weight": "400",
+    "style": "normal",
+    "src": "https://sommerhaus-fredersdorf.de/wp-content/uploads/fonts/young-serif-latin-400-normal.woff2"
+   }
+  ]
+ },
+ "albert-sans": {
+  "family": "Albert Sans",
+  "id": 1366,
+  "faces": [
+   {
+    "weight": "400",
+    "style": "normal",
+    "src": "https://sommerhaus-fredersdorf.de/wp-content/uploads/fonts/albert-sans-latin-400-normal.woff2"
+   },
+   {
+    "weight": "400",
+    "style": "italic",
+    "src": "https://sommerhaus-fredersdorf.de/wp-content/uploads/fonts/albert-sans-latin-400-italic.woff2"
+   },
+   {
+    "weight": "500",
+    "style": "normal",
+    "src": "https://sommerhaus-fredersdorf.de/wp-content/uploads/fonts/albert-sans-latin-500-normal.woff2"
+   },
+   {
+    "weight": "600",
+    "style": "normal",
+    "src": "https://sommerhaus-fredersdorf.de/wp-content/uploads/fonts/albert-sans-latin-600-normal.woff2"
+   },
+   {
+    "weight": "700",
+    "style": "normal",
+    "src": "https://sommerhaus-fredersdorf.de/wp-content/uploads/fonts/albert-sans-latin-700-normal.woff2"
+   }
+  ]
+ }
+}
