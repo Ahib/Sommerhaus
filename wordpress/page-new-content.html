@@ -197,6 +197,15 @@ blockquote footer{margin-top:14px;font-family:var(--font-body);font-size:.9rem;c
 .paper .form-wrap{background:transparent;border:0;padding:0;box-shadow:none;max-width:none;margin-top:28px}
 .paper .legend{color:#5F665C}
 @media (max-width:600px){.paper{padding:20px}}
+/* Kalender: Hover und gewählter Zeitraum */
+.paper .wpbs-date[data-day]:not(.wpbs-legend-item-2){cursor:pointer}
+.paper .wpbs-date[data-day]:not(.wpbs-legend-item-2):hover .wpbs-date-inner{box-shadow:inset 0 0 0 3px #2E5A3A;border-radius:4px}
+.paper .wpbs-date.is-picked .wpbs-date-inner{box-shadow:inset 0 0 0 3px #2E5A3A;border-radius:4px}
+.paper .wpbs-date.is-picked-edge .wpbs-date-inner{background:#2E5A3A!important;border-radius:4px}
+.paper .wpbs-date.is-picked-edge .wpbs-date-number,.paper .wpbs-date.is-picked-edge .wpbs-date-inner{color:#fff!important}
+.paper .cal .d:not(.busy):not(.off){cursor:pointer}
+.paper .cal .d:not(.busy):not(.off):hover,.paper .cal .d.is-picked{box-shadow:inset 0 0 0 3px #2E5A3A}
+.paper .cal .d.is-picked-edge{background:#2E5A3A!important;color:#fff!important}
 /* Form */
 label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
 input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
@@ -548,34 +557,6 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   </div>
 </footer>
 
-<script>
-(function(){
-  const el=id=>document.getElementById(id);
-  // Slider: Scroll-Snap plus Pfeile, Punkte und Zähler
-  document.querySelectorAll('.slider').forEach(sl=>{
-    const track=sl.querySelector('.track'), figs=[...track.children], dots=sl.querySelector('.dots'), count=sl.querySelector('.count');
-    if(dots) figs.forEach((_,i)=>{const d=document.createElement('i'); if(i===0)d.className='on'; dots.appendChild(d);});
-    const idx=()=>Math.round(track.scrollLeft/track.clientWidth);
-    const go=i=>{i=(i+figs.length)%figs.length; track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});};
-    const paint=()=>{const i=idx(); if(dots)[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i)); if(count)count.textContent=(i+1)+' / '+figs.length;};
-    sl.querySelector('.prev').addEventListener('click',()=>go(idx()-1));
-    sl.querySelector('.next').addEventListener('click',()=>go(idx()+1));
-    track.addEventListener('scroll',()=>{clearTimeout(track._t);track._t=setTimeout(paint,80);},{passive:true});
-    paint();
-  });
-
-  // Klick auf einen Kalendertag übernimmt Anreise (1. Klick) und Abreise (2. Klick) ins Formular
-  let pick=0;
-  document.addEventListener('click',e=>{
-    const wp=e.target.closest('.wpbs-date[data-day]'); const st=e.target.closest('.cal .d[title]');
-    if(!wp&&!st) return;
-    if(wp&&wp.classList.contains('wpbs-legend-item-2')) return;
-    const iso=wp?`${wp.dataset.year}-${String(wp.dataset.month).padStart(2,'0')}-${String(wp.dataset.day).padStart(2,'0')}`:st.title;
-    const an=document.getElementById('f-an'), ab=document.getElementById('f-ab'); if(!an||!ab) return;
-    if(pick===0||(an.value&&iso<=an.value)){an.value=iso;ab.value='';pick=1;}else{ab.value=iso;pick=0;}
-    [an,ab].forEach(i=>i.dispatchEvent(new Event('input',{bubbles:true})));
-  });
-})();
-</script>
+<script>(function(){var b=atob("CihmdW5jdGlvbigpewogIGNvbnN0IGVsPWlkPT5kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk7CiAgLy8gU2xpZGVyOiBTY3JvbGwtU25hcCBwbHVzIFBmZWlsZSwgUHVua3RlIHVuZCBaw6RobGVyCiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLnNsaWRlcicpLmZvckVhY2goc2w9PnsKICAgIGNvbnN0IHRyYWNrPXNsLnF1ZXJ5U2VsZWN0b3IoJy50cmFjaycpLCBmaWdzPVsuLi50cmFjay5jaGlsZHJlbl0sIGRvdHM9c2wucXVlcnlTZWxlY3RvcignLmRvdHMnKSwgY291bnQ9c2wucXVlcnlTZWxlY3RvcignLmNvdW50Jyk7CiAgICBpZihkb3RzKSBmaWdzLmZvckVhY2goKF8saSk9Pntjb25zdCBkPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2knKTsgaWYoaT09PTApZC5jbGFzc05hbWU9J29uJzsgZG90cy5hcHBlbmRDaGlsZChkKTt9KTsKICAgIGNvbnN0IGlkeD0oKT0+TWF0aC5yb3VuZCh0cmFjay5zY3JvbGxMZWZ0L3RyYWNrLmNsaWVudFdpZHRoKTsKICAgIGNvbnN0IGdvPWk9PntpPShpK2ZpZ3MubGVuZ3RoKSVmaWdzLmxlbmd0aDsgdHJhY2suc2Nyb2xsVG8oe2xlZnQ6aSp0cmFjay5jbGllbnRXaWR0aCxiZWhhdmlvcjonc21vb3RoJ30pO307CiAgICBjb25zdCBwYWludD0oKT0+e2NvbnN0IGk9aWR4KCk7IGlmKGRvdHMpWy4uLmRvdHMuY2hpbGRyZW5dLmZvckVhY2goKGQsayk9PmQuY2xhc3NMaXN0LnRvZ2dsZSgnb24nLGs9PT1pKSk7IGlmKGNvdW50KWNvdW50LnRleHRDb250ZW50PShpKzEpKycgLyAnK2ZpZ3MubGVuZ3RoO307CiAgICBzbC5xdWVyeVNlbGVjdG9yKCcucHJldicpLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywoKT0+Z28oaWR4KCktMSkpOwogICAgc2wucXVlcnlTZWxlY3RvcignLm5leHQnKS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsKCk9PmdvKGlkeCgpKzEpKTsKICAgIHRyYWNrLmFkZEV2ZW50TGlzdGVuZXIoJ3Njcm9sbCcsKCk9PntjbGVhclRpbWVvdXQodHJhY2suX3QpO3RyYWNrLl90PXNldFRpbWVvdXQocGFpbnQsODApO30se3Bhc3NpdmU6dHJ1ZX0pOwogICAgcGFpbnQoKTsKICB9KTsKCiAgLy8gS2FsZW5kZXI6IEtsaWNrIMO8YmVybmltbXQgQW5yZWlzZSAoMS4gS2xpY2spIHVuZCBBYnJlaXNlICgyLiBLbGljayksIGRlciBaZWl0cmF1bSB3aXJkIG1hcmtpZXJ0CiAgbGV0IHBpY2s9MDsKICBjb25zdCBpc29PZj1jPT5jLmRhdGFzZXQuZGF5P2Ake2MuZGF0YXNldC55ZWFyfS0ke1N0cmluZyhjLmRhdGFzZXQubW9udGgpLnBhZFN0YXJ0KDIsJzAnKX0tJHtTdHJpbmcoYy5kYXRhc2V0LmRheSkucGFkU3RhcnQoMiwnMCcpfWA6Yy50aXRsZTsKICBjb25zdCBjZWxscz0oKT0+Wy4uLmRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy53cGJzLWRhdGVbZGF0YS1kYXldLCAuY2FsIC5kW3RpdGxlXScpXTsKICBmdW5jdGlvbiBwYWludCgpewogICAgY29uc3QgYW49ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2YtYW4nKT8udmFsdWV8fCcnLCBhYj1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZi1hYicpPy52YWx1ZXx8Jyc7CiAgICBjZWxscygpLmZvckVhY2goYz0+e2NvbnN0IGQ9aXNvT2YoYyk7Y29uc3QgaW5SYW5nZT1hbiYmZD49YW4mJihhYj9kPD1hYjpkPT09YW4pO2MuY2xhc3NMaXN0LnRvZ2dsZSgnaXMtcGlja2VkJywhIWluUmFuZ2UpO2MuY2xhc3NMaXN0LnRvZ2dsZSgnaXMtcGlja2VkLWVkZ2UnLCEhYW4mJihkPT09YW58fGQ9PT1hYikpO30pOwogIH0KICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZT0+ewogICAgY29uc3QgYz1lLnRhcmdldC5jbG9zZXN0KCcud3Bicy1kYXRlW2RhdGEtZGF5XSwgLmNhbCAuZFt0aXRsZV0nKTsgaWYoIWMpIHJldHVybjsKICAgIGlmKGMuY2xhc3NMaXN0LmNvbnRhaW5zKCd3cGJzLWxlZ2VuZC1pdGVtLTInKXx8Yy5jbGFzc0xpc3QuY29udGFpbnMoJ2J1c3knKSkgcmV0dXJuOwogICAgY29uc3QgaXNvPWlzb09mKGMpLCBhbj1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZi1hbicpLCBhYj1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZi1hYicpOyBpZighYW58fCFhYikgcmV0dXJuOwogICAgaWYocGljaz09PTB8fChhbi52YWx1ZSYmaXNvPD1hbi52YWx1ZSkpe2FuLnZhbHVlPWlzbzthYi52YWx1ZT0nJztwaWNrPTE7fWVsc2V7YWIudmFsdWU9aXNvO3BpY2s9MDt9CiAgICBbYW4sYWJdLmZvckVhY2goaT0+aS5kaXNwYXRjaEV2ZW50KG5ldyBFdmVudCgnaW5wdXQnLHtidWJibGVzOnRydWV9KSkpOyBwYWludCgpOwogIH0pOwogIFsnZi1hbicsJ2YtYWInXS5mb3JFYWNoKGlkPT5kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk/LmFkZEV2ZW50TGlzdGVuZXIoJ2lucHV0JyxwYWludCkpOwogIGNvbnN0IHBhcGVyPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5wYXBlcicpOyBpZihwYXBlciYmd2luZG93Lk11dGF0aW9uT2JzZXJ2ZXIpe2xldCB0O25ldyBNdXRhdGlvbk9ic2VydmVyKCgpPT57Y2xlYXJUaW1lb3V0KHQpO3Q9c2V0VGltZW91dChwYWludCwxNTApO30pLm9ic2VydmUocGFwZXIse2NoaWxkTGlzdDp0cnVlLHN1YnRyZWU6dHJ1ZX0pO30KICBwYWludCgpOwp9KSgpOwo=");var a=new Uint8Array(b.length);for(var i=0;i<b.length;i++){a[i]=b.charCodeAt(i);}new Function(new TextDecoder().decode(a))();})();</script>
 
 <!-- /wp:html -->

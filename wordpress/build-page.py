@@ -96,6 +96,18 @@ extra = (
     '</style>'
 )
 
+# Inline-Skript gegen WordPress-Textfilter schützen (wptexturize wandelt sonst & < > um):
+# das JavaScript wird Base64-kodiert und zur Laufzeit entpackt.
+import base64
+def _protect(m):
+    code = m.group(1)
+    b64 = base64.b64encode(code.encode('utf-8')).decode('ascii')
+    return ('<script>(function(){var b=atob("%s");var a=new Uint8Array(b.length);'
+            'for(var i=0;i<b.length;i++){a[i]=b.charCodeAt(i);}'
+            'new Function(new TextDecoder().decode(a))();})();</script>') % b64
+body, n6 = re.subn(r'<script>(?!\(function\(\)\{var b=atob)(.*?)</script>', _protect, body, count=1, flags=re.S)
+assert n6 == 1, 'Inline-Skript nicht gefunden'
+
 content = '<!-- wp:html -->\n' + ld + '\n' + style + '\n' + extra + '\n' + body + '\n<!-- /wp:html -->'
 open(f'{ROOT}/wordpress/page-new-content.html', 'w', encoding='utf-8').write(content)
 print('page-new-content.html gebaut,', round(len(content.encode()) / 1024), 'KB')

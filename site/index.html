@@ -212,6 +212,15 @@ blockquote footer{margin-top:14px;font-family:var(--font-body);font-size:.9rem;c
 .paper .form-wrap{background:transparent;border:0;padding:0;box-shadow:none;max-width:none;margin-top:28px}
 .paper .legend{color:#5F665C}
 @media (max-width:600px){.paper{padding:20px}}
+/* Kalender: Hover und gewählter Zeitraum */
+.paper .wpbs-date[data-day]:not(.wpbs-legend-item-2){cursor:pointer}
+.paper .wpbs-date[data-day]:not(.wpbs-legend-item-2):hover .wpbs-date-inner{box-shadow:inset 0 0 0 3px #2E5A3A;border-radius:4px}
+.paper .wpbs-date.is-picked .wpbs-date-inner{box-shadow:inset 0 0 0 3px #2E5A3A;border-radius:4px}
+.paper .wpbs-date.is-picked-edge .wpbs-date-inner{background:#2E5A3A!important;border-radius:4px}
+.paper .wpbs-date.is-picked-edge .wpbs-date-number,.paper .wpbs-date.is-picked-edge .wpbs-date-inner{color:#fff!important}
+.paper .cal .d:not(.busy):not(.off){cursor:pointer}
+.paper .cal .d:not(.busy):not(.off):hover,.paper .cal .d.is-picked{box-shadow:inset 0 0 0 3px #2E5A3A}
+.paper .cal .d.is-picked-edge{background:#2E5A3A!important;color:#fff!important}
 /* Form */
 label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
 input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
@@ -603,17 +612,24 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   }
 
   el('map-btn').addEventListener('click',()=>{el('map').innerHTML='<p>In der Vorschau wird keine Karte geladen. Live: Google-Maps-Einbettung nach Zustimmung.</p>';});
-  // Klick auf einen Kalendertag übernimmt Anreise (1. Klick) und Abreise (2. Klick) ins Formular
+  // Kalender: Klick übernimmt Anreise (1. Klick) und Abreise (2. Klick), der Zeitraum wird markiert
   let pick=0;
+  const isoOf=c=>c.dataset.day?`${c.dataset.year}-${String(c.dataset.month).padStart(2,'0')}-${String(c.dataset.day).padStart(2,'0')}`:c.title;
+  const cells=()=>[...document.querySelectorAll('.wpbs-date[data-day], .cal .d[title]')];
+  function paint(){
+    const an=document.getElementById('f-an')?.value||'', ab=document.getElementById('f-ab')?.value||'';
+    cells().forEach(c=>{const d=isoOf(c);const inRange=an&&d>=an&&(ab?d<=ab:d===an);c.classList.toggle('is-picked',!!inRange);c.classList.toggle('is-picked-edge',!!an&&(d===an||d===ab));});
+  }
   document.addEventListener('click',e=>{
-    const wp=e.target.closest('.wpbs-date[data-day]'); const st=e.target.closest('.cal .d[title]');
-    if(!wp&&!st) return;
-    if(wp&&wp.classList.contains('wpbs-legend-item-2')) return;
-    const iso=wp?`${wp.dataset.year}-${String(wp.dataset.month).padStart(2,'0')}-${String(wp.dataset.day).padStart(2,'0')}`:st.title;
-    const an=document.getElementById('f-an'), ab=document.getElementById('f-ab'); if(!an||!ab) return;
+    const c=e.target.closest('.wpbs-date[data-day], .cal .d[title]'); if(!c) return;
+    if(c.classList.contains('wpbs-legend-item-2')||c.classList.contains('busy')) return;
+    const iso=isoOf(c), an=document.getElementById('f-an'), ab=document.getElementById('f-ab'); if(!an||!ab) return;
     if(pick===0||(an.value&&iso<=an.value)){an.value=iso;ab.value='';pick=1;}else{ab.value=iso;pick=0;}
-    [an,ab].forEach(i=>i.dispatchEvent(new Event('input',{bubbles:true})));
+    [an,ab].forEach(i=>i.dispatchEvent(new Event('input',{bubbles:true}))); paint();
   });
+  ['f-an','f-ab'].forEach(id=>document.getElementById(id)?.addEventListener('input',paint));
+  const paper=document.querySelector('.paper'); if(paper&&window.MutationObserver){let t;new MutationObserver(()=>{clearTimeout(t);t=setTimeout(paint,150);}).observe(paper,{childList:true,subtree:true});}
+  paint();
   el('anfrage-form').addEventListener('submit',e=>{e.preventDefault();el('f-submit').textContent='Vorschau: nichts gesendet';});
 })();
 </script>
