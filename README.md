@@ -20,13 +20,18 @@ internen Details gehören in das private Repository `Sommerhaus_priv`, nicht hie
 - HTML-Vorschau der neuen Startseite in `site/index.html`, Fotos in `site/assets/img/`.
 - Nichts an der Live-Seite geändert.
 
-### Phase 1 – Sofortmaßnahmen an der bestehenden Seite (vor dem Neubau, je 10–30 Minuten)
-- Unbekannte Administrator-Konten auf „Abonnent“ setzen oder löschen, Passwörter der echten
-  Admin-Konten erneuern, Zwei-Faktor-Anmeldung einrichten.
-- PHP-Version bei IONOS auf 8.2 oder 8.3 umstellen, vorher Backup.
-- Elementor Beta deaktivieren und Elementor auf die stabile Version zurücksetzen.
-- Impressum anlegen, Footer mit Impressum, Datenschutz und AGB.
-- AdSense entfernen.
+### Phase 1 – Sofortmaßnahmen (Stand 10.09.2026, 22 Uhr)
+- Erledigt: drei unbekannte Admin-Konten auf Abonnent gesetzt; Elementor Beta deaktiviert und
+  gelöscht; Impressum-Seite angelegt (Umsatzsteuer-Angabe noch Platzhalter); AdSense-Modul in
+  Site Kit abgeschaltet; Plugins Contact Form 7, Flamingo, Honeypot, Envato Elements, Gutenberg,
+  WP Fastest Cache entfernt; WP Consent API aktiviert; Zeitzone Europe/Berlin, Kommentare aus,
+  Site-Titel „Sommerhaus Ella“.
+- Offen, nur über die Oberfläche möglich: Elementor auf die stabile Version zurücksetzen
+  (Elementor → Werkzeuge → Versionskontrolle), Passwörter der echten Admin-Konten erneuern,
+  Zwei-Faktor-Anmeldung, PHP-Version bei IONOS auf 8.2 oder 8.3.
+- Zwischenfall: Beim Entfernen von Contact Form 7 vor dem Honeypot-Plugin stürzte die Seite ab
+  (Fehler 500), behoben durch Umbenennen des Honeypot-Ordners im IONOS-Dateimanager. Lehre:
+  Erweiterungs-Plugins immer vor dem Basis-Plugin entfernen.
 
 ### Phase 2 – Neue Startseite in WordPress umsetzen (Testseite seit 10.09.2026 unter /new live)
 Entscheidung: WordPress bleibt (Complianz, AIOSEO, Site Kit, Buchungslogik), aber ohne Elementor.

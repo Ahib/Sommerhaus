@@ -41,9 +41,7 @@ font_faces = ''.join(
 style = style.replace('<style>', '<style>' + font_faces, 1)
 
 # Hinweisbanner
-body = re.sub(r'<div class="preview-banner">.*?</div>',
-              '<div class="preview-banner">Testseite der neuen Startseite. Noch nicht offiziell, Rückmeldungen willkommen.</div>',
-              body, count=1)
+body = re.sub(r'<div class="preview-banner">.*?</div>', '', body, count=1)  # kein Hinweisbanner mehr, Seite ist live
 
 # Buchungszettel: echter Kalender + Formular
 booking = (
