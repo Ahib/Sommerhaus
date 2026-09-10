@@ -40,18 +40,21 @@ pflegbar bleibt und die Seite deutlich schneller lädt (heute 109 Requests, 1,7 
 - Title, Meta-Description, Schema.org `VacationRental`, Sitemap, Bing- und Google-Einreichung.
 
 ### Phase 3 – Anfrageformular und E-Mail-Zustellung
-Stand 10.09.2026: Auf /new läuft Contact Form 7 mit Flamingo und Honeypot. Zustellung bestätigt,
-die Testmails sind im Postfach der Gastgeber angekommen. WP Mail SMTP wurde probiert und wieder
-entfernt, weil es unkonfiguriert jeden Versand blockierte. Check & Log Email bleibt aktiv, damit
-jede von WordPress gesendete Mail im Backend nachvollziehbar ist (Menü „Check & Log Email“).
-Diagnose alt: WP Booking System sendet keine Mails. Wahrscheinlichste Ursachen: Absenderadresse nicht
-auf der eigenen Domain, fehlende SMTP-Authentifizierung bei IONOS, oder Funktion in der
-kostenlosen Plugin-Version nicht enthalten.
-- Schritt 1: Mail-Logging-Plugin aktivieren, Testanfrage stellen, Log lesen.
-- Schritt 2: Versand über SMTP mit dem IONOS-Postfach mail@sommerhaus-fredersdorf.de
-  (WP Mail SMTP, Server smtp.ionos.de, Port 587).
-- Schritt 3: Anfrageformular so bauen, dass jede Anfrage (a) per E-Mail an die Gastgeber geht,
-  (b) dem Gast eine Eingangsbestätigung schickt und (c) im Backend gespeichert bleibt.
+Stand 10.09.2026, Abend: Auf /new läuft jetzt das Formular von WP Booking System auf dem
+Buchungszettel unter dem Kalender, im Look des zuvor gebauten Formulars. Damit landen Anfragen als
+Buchung im Kalender und in der Buchungsliste (Testbuchung 14.–17.09. erfolgreich abgesendet).
+Contact Form 7, Flamingo und Honeypot bleiben installiert, werden aber nicht mehr auf der Seite
+verwendet und können entfernt werden.
+
+Ursache der fehlenden Kalender-Mails (aus den Formulareinstellungen abgelesen): Unter
+„Admin Benachrichtigung“ steht als E-Mail-Adresse des Absenders `{1:E-Mail}`, also die Adresse des
+Gastes. Der IONOS-Server versendet dann im Namen fremder Domains, was Outlook, Gmail und andere
+abweisen. Lösung: Absender auf `wordpress@sommerhaus-fredersdorf.de` setzen, „Antwort an“ bleibt
+`{1:E-Mail}`. Gleiches im Reiter „Benutzer Benachrichtigung“. WordPress selbst stellt Mails zu,
+das ist mit dem Contact-Form-7-Test bestätigt.
+
+Noch zu ergänzen im WP-Booking-System-Formular (Formulare → Formular Ersteller): Felder „Name“,
+„Anreise mit E-Auto?“ und „Hund dabei?“. Check & Log Email bleibt aktiv, um Mails nachzuvollziehen.
 - Optional: Push-Benachrichtigung über Home Assistant bei neuer Anfrage.
 
 ### Phase 4 – Belegungskalender als gemeinsame Wahrheit
