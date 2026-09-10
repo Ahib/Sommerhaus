@@ -70,9 +70,36 @@ E-Auto“, dazu `sensor.gastelage` (Keine Gäste, Erwartet, Aktiv, Ruhen), `sens
   Kathrin bei jedem automatischen Wechsel.
 - Erst bauen, wenn der Kalender in Phase 4 steht.
 
+## Entscheidungen der Gastgeber (Stand 10.09.2026)
+- Keine Preise auf der Seite. Im Preisbereich steht wieder der Satz „Fragen Sie Ihren Preis für einen
+  individuellen Buchungswunsch an.“ mit dem Oscar-Wilde-Zitat. Kein Preisrechner.
+- Der Einstiegspreis „ab 116 € pro Nacht“ steht nur in den strukturierten Daten (`priceRange`),
+  nicht im sichtbaren Text. Hinweis: Google übernimmt Ferienhaus-Preise nicht aus Schema.org,
+  sondern aus Partner-Feeds und dem Unternehmensprofil; der Eintrag schadet nicht, bringt aber
+  keine Preisanzeige in der Suche.
+- Kein Tischtennis mehr. Grill und Waschmaschine sind inklusive.
+- Bad und WC sind zwei getrennte Räume und werden getrennt gezeigt.
+- Hunde sind willkommen, wenn sie die Hühner in Ruhe lassen.
+- Mehr Fotos: jede Zimmerkarte hat eine Slideshow, dazu ein großer Rundgang (58 Fotos gesamt).
+
+## SEO-Konzept der neuen Startseite
+- Hauptbegriffe: „Ferienhaus Fredersdorf“, „Ferienhaus bei Berlin“, „Fachwerkhaus Garten“.
+  Nebenbegriffe: „Fredersdorf-Vogelsdorf“, „S5 Ostkreuz“, „Bötzsee“, „Unterkunft Berlin Umland“.
+- Platzierung statt Dichte: Hauptbegriff im Title, in der Meta-Description, im Eyebrow über der H1,
+  in der H1 („Fachwerkhaus bei Berlin“), in der ersten H2 („Ferienhaus mit Garten“), im ersten
+  Absatz und im Footer. Danach nur noch dort, wo es natürlich klingt. Ziel sind rund 1 bis 2 Prozent
+  Keyword-Anteil im Fließtext, geprüft mit dem Lesefluss, nicht mit dem Zähler.
+- Jedes Foto hat einen sprechenden Dateinamen (`ferienhaus-fredersdorf-<raum>-<motiv>.jpg`),
+  einen beschreibenden Alt-Text und feste Breite und Höhe. Der Ortsname steht nur in einem Teil
+  der Alt-Texte, damit es nicht wie Stuffing wirkt.
+- Strukturierte Daten als `VacationRental` mit Adresse, Belegung, Betten, Bad und WC,
+  Ausstattung, Haustiere und `priceRange`.
+- Ein Thema pro Abschnitt mit eigener H2, damit Google Sprungmarken anbieten kann (Rundgang,
+  Zimmer, Ausstattung, Preise, Verfügbarkeit, Anfrage, Lage, Fragen).
+- Bilder laden verzögert, nur das Hero-Bild sofort. Keine externen Skripte außer Google Fonts.
+
 ## Offene Fragen an die Gastgeber
-- Nachtpreise je Saison, Mindestaufenthalt, Anzahlung, Stornoregeln.
-- Check-in und Check-out-Zeiten, Hunde, Rauchen.
+- Check-in und Check-out-Zeiten, Rauchen.
 - Vollständige Namen und Umsatzsteuer-Status fürs Impressum.
 - Google-Konto für das Unternehmensprofil und den Buchungskalender.
 - Zugriff für die Claude-GitHub-App auf `Sommerhaus_priv` (für Sicherung und Berichte).
