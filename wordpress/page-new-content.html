@@ -1,0 +1,557 @@
+<!-- wp:html -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VacationRental",
+  "name": "Sommerhaus Ella",
+  "alternateName": "Ferienhaus Sommerhaus Ella Fredersdorf",
+  "description": "Kleines Fachwerkhaus mit Garten in Fredersdorf-Vogelsdorf bei Berlin, bis 4 Personen, S-Bahn S5 in 30 Minuten am Ostkreuz. Kaminofen, Glasfaser-WLAN, Grill, Waschmaschine, drei Hühner.",
+  "url": "https://sommerhaus-fredersdorf.de/",
+  "telephone": "+49 1577 3836748",
+  "email": "mail@sommerhaus-fredersdorf.de",
+  "image": ["https://sommerhaus-fredersdorf.de/https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-garten-hero.jpg","https://sommerhaus-fredersdorf.de/https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-giebel-juli.jpg","https://sommerhaus-fredersdorf.de/https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-kaminofen.jpg"],
+  "address": {"@type": "PostalAddress", "streetAddress": "Amselstr. 3", "postalCode": "15370", "addressLocality": "Fredersdorf-Vogelsdorf", "addressRegion": "Brandenburg", "addressCountry": "DE"},
+  "priceRange": "ab 116 € pro Nacht",
+  "petsAllowed": true,
+  "checkinTime": "15:00", "checkoutTime": "11:00",
+  "knowsLanguage": ["de", "en"],
+  "containsPlace": {"@type": "Accommodation", "occupancy": {"@type": "QuantitativeValue", "maxValue": 4}, "numberOfBedrooms": 1, "numberOfFullBathrooms": 1, "numberOfPartialBathrooms": 1, "numberOfRooms": 4,
+    "bed": [{"@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Doppelbett"}, {"@type": "BedDetails", "numberOfBeds": 1, "typeOfBed": "Schlafsofa"}],
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Garten", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Grill", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Kaminofen", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "WLAN Glasfaser", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Waschmaschine", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Parkplatz", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "E-Ladestation auf Anfrage", "value": true}
+    ]},
+  "sameAs": ["https://www.instagram.com/sommerhaus_ella/"]
+}
+</script>
+<style>
+:root{
+  --bg:#F3F4EF; --card:#FFFFFF; --ink:#1F241E; --mute:#5F665C; --line:#D6DACF;
+  --moss:#2E5A3A; --moss-deep:#1E3F29; --moss-soft:#E3ECE3; --brick:#B5452D; --straw:#E8C877; --straw-soft:#F7EBC5; --btn-ink:#FFFFFF;
+  --shadow:0 18px 40px -24px rgba(31,36,30,.35);
+  --font-display:"Young Serif", Georgia, "Times New Roman", serif;
+  --font-body:"Albert Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161A15; --card:#1F2520; --ink:#EEEFE8; --mute:#A8AEA2; --line:#2F372D;
+    --moss:#8DBB98; --moss-deep:#B9D8C0; --moss-soft:#22302A; --brick:#E3775F; --straw:#E8C877; --straw-soft:#3A331B; --btn-ink:#101510;
+    --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161A15; --card:#1F2520; --ink:#EEEFE8; --mute:#A8AEA2; --line:#2F372D;
+  --moss:#8DBB98; --moss-deep:#B9D8C0; --moss-soft:#22302A; --brick:#E3775F; --straw:#E8C877; --straw-soft:#3A331B; --btn-ink:#101510;
+  --shadow:0 18px 40px -24px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--moss-deep)}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,5.2vw,4.1rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+h3{font-size:1.35rem}
+p{margin:0}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--moss);margin-bottom:14px}
+.lede{font-size:1.15rem;color:var(--mute);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font-size:1rem;font-family:inherit;transition:transform .15s ease,background .2s ease,color .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--straw);outline-offset:2px}
+.btn-primary{background:var(--moss);color:var(--btn-ink)}
+.btn-primary:hover{background:var(--moss-deep)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--moss)}
+.note{font-size:.9rem;color:var(--mute)}
+
+/* Header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
+.brand{font-family:var(--font-display);font-size:1.25rem;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:10px}
+.brand span{width:10px;height:10px;background:var(--brick);border-radius:2px;transform:rotate(45deg)}
+.nav{display:flex;gap:24px;font-size:.95rem;font-weight:500}
+.nav a{text-decoration:none;color:var(--ink);opacity:.85}
+.nav a:hover{opacity:1;color:var(--moss)}
+.top .btn{padding:10px 18px;font-size:.92rem}
+@media (max-width:900px){.nav{display:none}}
+
+/* Hero */
+.hero{padding-block:28px 72px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero-media{position:relative}
+.hero-media img{aspect-ratio:16/11;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.frame::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--moss);z-index:-1;pointer-events:none}
+.hero-stamp{position:absolute;right:-6px;bottom:-22px;background:var(--straw);color:#1F241E;padding:12px 16px;font-family:var(--font-display);font-size:1rem;line-height:1.2;transform:rotate(-2deg);box-shadow:var(--shadow)}
+.hero-stamp small{display:block;font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.hero-copy h1 em{font-style:normal;color:var(--moss)}
+.hero-copy .lede{margin-top:22px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts div{padding:18px 16px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:400;font-variant-numeric:tabular-nums}
+.facts span{font-size:.85rem;color:var(--mute)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:36px}.frame::before{inset:10px -10px -10px 10px}.facts{grid-template-columns:repeat(2,1fr)}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero-media img{animation:settle 1.4s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*:nth-child(2){animation-delay:.08s}.hero-copy>*:nth-child(3){animation-delay:.16s}.hero-copy>*:nth-child(4){animation-delay:.24s}
+}
+@keyframes settle{from{transform:scale(1.04)}to{transform:scale(1)}}
+@keyframes rise{from{transform:translateY(12px);opacity:.01}to{transform:none;opacity:1}}
+
+/* Sections */
+section{padding-block:72px}
+.section-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:36px}
+.section-head .lede{margin-top:12px}
+@media (max-width:700px){.section-head{grid-template-columns:1fr}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split.flip>.split-media{order:2}
+.split-media{position:relative}
+.split-media img{aspect-ratio:4/3;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.caption{position:absolute;left:18px;bottom:18px;background:var(--card);padding:10px 14px;font-size:.85rem;color:var(--mute);box-shadow:var(--shadow);max-width:80%}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:28px}.split.flip>.split-media{order:0}}
+
+/* Slider (scroll-snap, ohne Bibliothek) */
+.slider{position:relative}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;background:var(--moss-soft)}
+.track::-webkit-scrollbar{display:none}
+.track figure{flex:0 0 100%;margin:0;scroll-snap-align:start;position:relative}
+.track img{width:100%;object-fit:cover}
+.track figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 10px;font-size:.82rem;color:#fff;background:linear-gradient(to top,rgba(20,24,18,.75),rgba(20,24,18,0))}
+.sl-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#1F241E;font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25);font-family:var(--font-display)}
+.sl-btn:hover{background:#fff}
+.sl-btn.prev{left:10px}.sl-btn.next{right:10px}
+.dots{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:5px;pointer-events:none}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55)}
+.dots i.on{background:#fff;width:16px;border-radius:3px}
+.slider.large .track img{aspect-ratio:16/10}
+.slider.large .track figcaption{font-size:.95rem;padding:48px 20px 16px}
+.slider.large .sl-btn{width:46px;height:46px}
+.count{position:absolute;top:10px;right:10px;background:rgba(20,24,18,.6);color:#fff;font-size:.75rem;padding:3px 8px;border-radius:999px;font-variant-numeric:tabular-nums}
+
+/* Rooms */
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.room{background:var(--card);border:1px solid var(--line)}
+.room .track img{aspect-ratio:4/5}
+.room.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
+.room.wide .track img{aspect-ratio:4/3}
+.room.wide .room-body{align-self:center;padding:28px 36px}
+@media (max-width:960px){.room.wide{grid-template-columns:1fr}}
+.room-body{padding:18px 20px 22px}
+.room-body h3{margin-bottom:8px}
+.room-body p{color:var(--mute);font-size:.95rem}
+.room-body ul{margin:12px 0 0;padding-left:18px;color:var(--ink);font-size:.93rem}
+@media (max-width:960px){.rooms{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.rooms{grid-template-columns:1fr}}
+
+/* Amenities */
+.amen{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 40px;margin-top:8px}
+.amen ul{margin:0;padding:0;display:contents}
+.amen li{list-style:none;padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.amen .dot{width:10px;height:10px;margin-top:9px;background:var(--moss);flex:none;transform:rotate(45deg)}
+.amen small{display:block;color:var(--mute);font-size:.85rem}
+@media (max-width:860px){.amen{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.amen{grid-template-columns:1fr}}
+
+/* Prices */
+.quote{max-width:760px;margin-inline:auto;text-align:center}
+.quote h2{margin-bottom:28px}
+blockquote{margin:0;font-family:var(--font-display);font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.4;color:var(--ink)}
+blockquote footer{margin-top:14px;font-family:var(--font-body);font-size:.9rem;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.quote .lede{margin:28px auto 0}
+.quote .btn{margin-top:26px}
+
+/* Availability */
+.months{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.month{background:var(--card);border:1px solid var(--line);padding:18px}
+.month h3{font-size:1.1rem;margin-bottom:12px;display:flex;justify-content:space-between}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:.85rem;font-variant-numeric:tabular-nums}
+.cal .dow{color:var(--mute);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding-bottom:6px}
+.cal .d{aspect-ratio:1;display:grid;place-items:center;border-radius:4px;background:var(--moss-soft);color:var(--ink)}
+.cal .d.off{background:transparent;color:var(--mute);opacity:.5}
+.cal .d.busy{background:var(--brick);color:#fff}
+.cal .d.half{background:linear-gradient(135deg,var(--moss-soft) 50%,var(--brick) 50%);color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:.88rem;color:var(--mute)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+@media (max-width:700px){.months{grid-template-columns:1fr}}
+
+/* Form */
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-grid .full{grid-column:1/-1}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--mute)}
+.check input{width:auto;margin-top:4px}
+.form-wrap{background:var(--card);border:1px solid var(--line);padding:32px;box-shadow:var(--shadow);max-width:840px}
+@media (max-width:600px){.form-grid{grid-template-columns:1fr}.form-wrap{padding:22px}}
+
+/* Location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.map{background:var(--moss-soft);border:1px dashed var(--moss);aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:24px}
+.map p{max-width:34ch;color:var(--mute);font-size:.95rem}
+.tips h3{margin:22px 0 10px}
+.tips ul{margin:0;padding-left:18px;color:var(--ink)}
+.tips li{margin-bottom:6px}
+.tips li span{color:var(--mute)}
+.address{font-size:1.05rem;line-height:1.5}
+@media (max-width:860px){.loc{grid-template-columns:1fr}}
+
+/* Hosts */
+.host-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:32px}
+.host-grid img{aspect-ratio:1;object-fit:cover;width:100%}
+.host-grid figure{margin:0}
+.host-grid figcaption{font-size:.85rem;color:var(--mute);padding-top:8px}
+@media (max-width:600px){.host-grid{grid-template-columns:1fr 1fr}.host-grid figure:last-child{display:none}}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--font-display);color:var(--moss);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--mute);max-width:70ch}
+
+/* Footer */
+footer{padding-block:48px;border-top:1px solid var(--line);font-size:.92rem;color:var(--mute)}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+footer h4{margin:0 0 10px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+footer a{color:var(--ink);text-decoration:none}
+footer a:hover{color:var(--moss)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.preview-banner{background:var(--straw);color:#1F241E;text-align:center;font-size:.85rem;padding:8px 16px;font-weight:600}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+</style>
+<style>.wpcf7 .form-grid label{display:block}.wpcf7-form-control-wrap{display:block}.wpcf7-not-valid-tip{color:var(--brick);font-size:.85rem;margin-top:4px}.wpcf7-response-output{margin:16px 0 0;padding:12px 14px;border:1px solid var(--line)!important;border-radius:6px}.wpcf7-acceptance .wpcf7-list-item{margin:0}.wpcf7-spinner{margin-left:10px}.wpbs-container{margin-inline:auto}</style>
+
+<div class="preview-banner">Testseite der neuen Startseite. Noch nicht offiziell, Rückmeldungen willkommen.</div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span aria-hidden="true"></span>Sommerhaus Ella</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#haus">Das Haus</a><a href="#rundgang">Rundgang</a><a href="#zimmer">Zimmer</a><a href="#preise">Preise</a><a href="#verfuegbarkeit">Verfügbarkeit</a><a href="#lage">Lage</a><a href="#faq">Fragen</a>
+    </nav>
+    <a class="btn btn-primary" href="#anfrage">Anfragen</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-media frame">
+        <img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-garten-hero.jpg" width="1600" height="900" alt="Ferienhaus Sommerhaus Ella in Fredersdorf: weißes Fachwerkhaus mit rotem Ziegeldach hinter einer Rasenfläche mit Obstbäumen" fetchpriority="high">
+        <div class="hero-stamp"><small>Familiengeführt</small>Fredersdorf bei Berlin</div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Ferienhaus in Fredersdorf-Vogelsdorf · bis 4 Personen</p>
+        <h1>Ein kleines Fachwerkhaus bei Berlin, <em>30 Minuten</em> vom Ostkreuz.</h1>
+        <p class="lede">Ferienhaus mit Garten, Kaminofen, Grill und Glasfaser-WLAN, drei Hühner vor der Tür. Die S5 bringt Sie ohne Umsteigen nach Berlin, der Bötzsee liegt zehn Minuten entfernt.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#verfuegbarkeit">Verfügbarkeit prüfen</a>
+          <a class="btn btn-ghost" href="#rundgang">Rundgang ansehen</a>
+        </div>
+      </div>
+    </div>
+    <div class="facts" aria-label="Eckdaten">
+      <div><b>2 + 2</b><span>Erwachsene plus zwei Kinder oder ein dritter Erwachsener</span></div>
+      <div><b>30 min</b><span>mit der S5 bis Ostkreuz, 40 min bis Alexanderplatz</span></div>
+      <div><b>10 min</b><span>bis zum Strandbad Bötzsee, Wald in vier Minuten</span></div>
+      <div><b>3 Hühner</b><span>kein Hahn, Streicheln und Füttern erlaubt</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="haus">
+  <div class="wrap split">
+    <div class="split-media">
+      <img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-giebel-juli.jpg" width="1000" height="539" alt="Giebelseite des Ferienhauses mit Fachwerk, grünen Fensterrahmen und Rosen" loading="lazy">
+      <div class="caption">Die Giebelseite Ihres Ferienhauses, im Juli.</div>
+    </div>
+    <div>
+      <p class="eyebrow">Das Haus</p>
+      <h2>Ferienhaus mit Garten am Ortsrand, Berlin in Reichweite.</h2>
+      <p class="lede" style="margin-top:16px">Das Sommerhaus Ella steht auf unserem Grundstück in Fredersdorf, zwischen Wald, Wiesen, Feldern und Seen. Es hat ein eigenes Schlafzimmer, ein modernes Bad mit bodentiefer Dusche, ein separates WC, eine Küche mit Blick in den Garten und ein Wohnzimmer mit Kaminofen. Sie wohnen für sich, wir sind auf dem Grundstück erreichbar, wenn Sie etwas brauchen.</p>
+      <ul class="amen" style="grid-template-columns:1fr;gap:0;margin-top:22px">
+        <li><i class="dot"></i><div>Parkplatz direkt vor dem Grundstück<small>ganztägig, kostenlos</small></div></li>
+        <li><i class="dot"></i><div>Glasfaser-WLAN, Waschmaschine, Grill<small>inklusive</small></div></li>
+        <li><i class="dot"></i><div>Bettwäsche und Handtücher<small>inklusive</small></div></li>
+        <li><i class="dot"></i><div>E-Ladestation für E-Auto und E-Scooter<small>auf Anfrage</small></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="rundgang" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Rundgang</p><h2>Haus und Garten durch das Jahr.</h2></div>
+      <p class="lede">Alle Fotos zeigen das Sommerhaus Ella in Fredersdorf, nichts ist aus dem Katalog.</p>
+    </div>
+    <div class="slider large" aria-roledescription="Karussell" aria-label="Rundgang durch Haus und Garten">
+      <div class="track">
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-vom-garten.jpg" width="1000" height="563" alt="Blick vom Garten auf das Fachwerk-Ferienhaus mit Gartenbank im Vordergrund" loading="lazy"><figcaption>Vom Garten aus: Bank, Rasen und das Haus im Abendlicht.</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-sommerabend.jpg" width="1000" height="563" alt="Das Ferienhaus in Fredersdorf an einem Sommerabend mit Blick über den Garten" loading="lazy"><figcaption>Sommerabend am Haus.</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-rosen-eingang.jpg" width="675" height="900" alt="Eingang des Ferienhauses mit Rosen und Fachwerkbalken" loading="lazy"><figcaption>Rosen am Eingang, Juli.</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-koniferen.jpg" width="900" height="675" alt="Garten des Ferienhauses mit Rosenbeet und hohen Koniferen" loading="lazy"><figcaption>Rosen und Koniferen, der ruhigste Platz im Garten.</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-abend.jpg" width="820" height="616" alt="Gartenbank vor dem Ferienhaus in der Abendsonne" loading="lazy"><figcaption>Abendsonne auf der Bank.</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-garten-hochkant.jpg" width="506" height="900" alt="Ferienhaus und Garten von der Wiese aus gesehen" loading="lazy"><figcaption>Von der Wiese aus gesehen.</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-blick-sommer.jpg" width="507" height="900" alt="Blick aus dem Ferienhaus in den Garten mit Sitzplatz" loading="lazy"><figcaption>Der Blick aus der Tür in den Garten.</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-winterabend.jpg" width="900" height="506" alt="Das Fachwerkhaus im Winter bei Sonnenuntergang mit Schnee auf der Wiese" loading="lazy"><figcaption>Januar, kurz vor Sonnenuntergang. Drinnen brennt der Kaminofen.</figcaption></figure>
+      </div>
+      <button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button>
+      <button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button>
+      <div class="dots" aria-hidden="true"></div><div class="count" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<section id="zimmer" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Zimmer und Betten</p><h2>Vier Räume, ein Garten, viel Licht.</h2></div>
+      <p class="lede">Alles auf einer Ebene. Bad und WC sind zwei getrennte Räume. Wischen Sie durch die Fotos.</p>
+    </div>
+    <div class="rooms">
+      <article class="room">
+        <div class="slider" aria-roledescription="Karussell" aria-label="Fotos Schlafzimmer"><div class="track">
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-schlafzimmer-bett.jpg" width="675" height="900" alt="Schlafzimmer des Ferienhauses mit Doppelbett, blauer Tagesdecke und Blick ins Grüne" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-schlafzimmer-fenster.jpg" width="675" height="900" alt="Doppelbett am geöffneten Fenster mit Blick in den Garten" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-schlafzimmer-kommode.jpg" width="675" height="900" alt="Kommode im Schlafzimmer mit gefalteten Handtüchern und Spiegel" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-schlafzimmer-handtuecher.jpg" width="675" height="900" alt="Frisch bezogenes Doppelbett mit Handtüchern für die Gäste" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-schlafzimmer-bett-fenster.jpg" width="675" height="900" alt="Schlafzimmer mit Bett und Fenster zum Garten" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-schlafzimmer-tag.jpg" width="675" height="900" alt="Schlafzimmer bei Tageslicht mit Korbstuhl" loading="lazy"></figure>
+        </div><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button><div class="dots" aria-hidden="true"></div></div>
+        <div class="room-body"><h3>Schlafzimmer</h3><p>Doppelbett, großer Kleiderschrank, verdunkelbar.</p><ul><li>1 Doppelbett</li><li>Fenster zum Garten</li></ul></div>
+      </article>
+      <article class="room">
+        <div class="slider" aria-roledescription="Karussell" aria-label="Fotos Wohnzimmer"><div class="track">
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-kaminofen.jpg" width="675" height="900" alt="Wohnzimmer des Ferienhauses mit Kaminofen, Schaukelstuhl und Holzleiter" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-schaukelstuhl.jpg" width="675" height="900" alt="Schaukelstuhl und Korbsessel neben der Leiter im Wohnzimmer" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-schlafsofa.jpg" width="675" height="900" alt="Wohnzimmer mit Design-Schlafsofa und farbigem Gemälde" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-schlafsofa-bett.jpg" width="675" height="900" alt="Ausgeklapptes Schlafsofa mit gestreifter Bettwäsche" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-fernseher.jpg" width="675" height="900" alt="Sideboard mit Smart-TV und Blumen im Wohnzimmer" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-ofen.jpg" width="675" height="900" alt="Kaminofen mit Lampe und Schaukelstuhl" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wohnzimmer-ofen-detail.jpg" width="675" height="900" alt="Kaminofen im Wohnzimmer mit Pusteblumen-Deko und Gemälde" loading="lazy"></figure>
+        </div><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button><div class="dots" aria-hidden="true"></div></div>
+        <div class="room-body"><h3>Wohnzimmer</h3><p>Kaminofen, Smart-TV und ein Design-Schlafsofa von Ligne Roset.</p><ul><li>Schlafsofa für zwei Kinder bis 14 Jahre oder einen dritten Erwachsenen</li><li>Durchgangszimmer zur Küche</li></ul></div>
+      </article>
+      <article class="room">
+        <div class="slider" aria-roledescription="Karussell" aria-label="Fotos Küche"><div class="track">
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-tisch.jpg" width="675" height="900" alt="Küche des Ferienhauses mit Holztisch, Vitrine und Blick in den Garten" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-tisch-fenster.jpg" width="675" height="900" alt="Esstisch am Küchenfenster mit Blumen" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-fenster.jpg" width="675" height="900" alt="Sitzecke in der Küche mit Blick in den Garten" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-herd.jpg" width="675" height="900" alt="E-Herd mit Backofen und alter Holztür in der Küche" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-waschmaschine.jpg" width="675" height="900" alt="Waschmaschine und Kühlschrank neben dem Küchentisch" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-vitrine.jpg" width="675" height="900" alt="Vitrine mit Geschirr und rosa Blumen auf dem Tisch" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-armatur.jpg" width="675" height="900" alt="Kupferfarbene Armatur an der Spüle mit gemusterten Fliesen" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-kueche-spuele.jpg" width="675" height="900" alt="Spüle mit grün gemusterten Fliesen in der Küche" loading="lazy"></figure>
+        </div><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button><div class="dots" aria-hidden="true"></div></div>
+        <div class="room-body"><h3>Küche</h3><p>Sitzecke mit Gartenblick, komplett ausgestattet.</p><ul><li>E-Herd, Backofen, Kühlschrank, Waschmaschine</li><li>Kaffeekocher, Wasserkocher, Thermoskanne</li><li>Tisch für bis zu fünf Personen</li></ul></div>
+      </article>
+      <article class="room">
+        <div class="slider" aria-roledescription="Karussell" aria-label="Fotos Bad"><div class="track">
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-bad-waschtisch.jpg" width="675" height="900" alt="Modernes Bad des Ferienhauses mit Waschtisch, rundem Spiegel und Holzoptik" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-bad-dusche.jpg" width="675" height="900" alt="Bodentiefe Dusche mit Glaswand und Regenbrause" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-bad-spiegel.jpg" width="675" height="900" alt="Waschbecken mit Spiegel und Ablage im Bad" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-bad-dusche-detail.jpg" width="675" height="900" alt="Duschbereich mit Handtuchhalter im Bad" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-bad-armatur.jpg" width="675" height="900" alt="Kupferarmatur mit Seifenspender auf gemusterten Fliesen" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-bad-lampe.jpg" width="675" height="900" alt="Kerzenleuchter-Lampe als Detail im Bad" loading="lazy"></figure>
+        </div><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button><div class="dots" aria-hidden="true"></div></div>
+        <div class="room-body"><h3>Bad</h3><p>Neues Bad mit offener, bodentiefer Dusche.</p><ul><li>Waschtisch mit Spiegel</li><li>Handtücher inklusive</li></ul></div>
+      </article>
+      <article class="room">
+        <div class="slider" aria-roledescription="Karussell" aria-label="Fotos WC"><div class="track">
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wc-separat.jpg" width="675" height="900" alt="Separates WC im Ferienhaus mit eigenem Waschbecken" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-wc-waschbecken.jpg" width="675" height="900" alt="Kleines Waschbecken mit Spiegel im separaten WC" loading="lazy"></figure>
+        </div><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button><div class="dots" aria-hidden="true"></div></div>
+        <div class="room-body"><h3>Separates WC</h3><p>Eigener Raum mit Waschbecken, unabhängig vom Bad.</p><ul><li>Praktisch zu viert</li></ul></div>
+      </article>
+      <article class="room">
+        <div class="slider" aria-roledescription="Karussell" aria-label="Fotos Garten"><div class="track">
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-bank.jpg" width="675" height="900" alt="Rote Gartenbank unter einem alten Baum im Garten des Ferienhauses" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-grill.jpg" width="675" height="900" alt="Kugelgrill im Garten" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-grill-haus.jpg" width="675" height="900" alt="Grillplatz mit Blick auf das Fachwerkhaus" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-laternen.jpg" width="675" height="900" alt="Windlichter am Gartenweg" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-rosen.jpg" width="1000" height="750" alt="Rosa Rosen im Garten vor hohen Koniferen" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-wiese.jpg" width="515" height="900" alt="Blühende Wiese am Rand des Gartens" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-steinmauer.jpg" width="675" height="900" alt="Natursteinmauer und Beet im Garten" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-holzstapel.jpg" width="675" height="900" alt="Holzstapel für den Kaminofen" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-regentonne.jpg" width="900" height="675" alt="Regentonne aus Holz und Pflanzen an der Hauswand" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-baum.jpg" width="675" height="900" alt="Alter Baum mit Bank im Schatten" loading="lazy"></figure>
+        </div><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button><div class="dots" aria-hidden="true"></div></div>
+        <div class="room-body"><h3>Garten</h3><p>Grillen, Boule spielen oder einfach auf der Liege bleiben.</p><ul><li>Grill, Boule, Federball</li><li>Liegen und Gartenbank</li></ul></div>
+      </article>
+      <article class="room wide">
+        <div class="slider" aria-roledescription="Karussell" aria-label="Fotos Hühner"><div class="track">
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-huhn-seidenhuhn.jpg" width="750" height="750" alt="Graues Seidenhuhn mit flauschigem Gefieder auf dem Rasen" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-huhn-braun.jpg" width="675" height="900" alt="Braunes Huhn mit dunklem Halsgefieder im Gras" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-huhn-rot.jpg" width="750" height="750" alt="Rotbraunes Huhn schaut in die Kamera" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-huhn-weiss.jpg" width="750" height="750" alt="Weißes Huhn auf dem Rindenmulch" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-huhn-schwarz.jpg" width="675" height="900" alt="Schwarzes Seidenhuhn im Garten" loading="lazy"></figure>
+          <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-huhn-gesprenkelt.jpg" width="634" height="758" alt="Gesprenkeltes Huhn zwischen Blumen" loading="lazy"></figure>
+        </div><button type="button" class="sl-btn prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="sl-btn next" aria-label="Nächstes Bild">›</button><div class="dots" aria-hidden="true"></div></div>
+        <div class="room-body"><h3>Die Hühner</h3><p>Drei Hühner, kein Hahn. Streicheln und Füttern ausdrücklich erlaubt.</p><ul><li>Kinder lieben sie</li><li>Hunde willkommen, wenn sie die Hühner in Ruhe lassen</li></ul></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ausstattung" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Ausstattung</p>
+    <h2 style="margin-bottom:24px">Was Sie im Ferienhaus vorfinden.</h2>
+    <div class="amen"><ul>
+      <li><i class="dot"></i><div>Doppelbett und Design-Schlafsofa<small>Ligne Roset, für 2 Kinder oder 1 Erwachsenen</small></div></li>
+      <li><i class="dot"></i><div>Glasfaser-WLAN<small>stabil genug für Homeoffice</small></div></li>
+      <li><i class="dot"></i><div>Kaminofen<small>Holz liegt bereit</small></div></li>
+      <li><i class="dot"></i><div>Küche komplett<small>E-Herd, Backofen, Kühlschrank, Kaffee- und Wasserkocher, Thermoskanne</small></div></li>
+      <li><i class="dot"></i><div>Waschmaschine<small>im Haus, inklusive</small></div></li>
+      <li><i class="dot"></i><div>Smart-TV 32 Zoll<small>mit Streaming</small></div></li>
+      <li><i class="dot"></i><div>Bad mit bodentiefer Dusche<small>Handtücher inklusive</small></div></li>
+      <li><i class="dot"></i><div>Separates WC<small>mit eigenem Waschbecken</small></div></li>
+      <li><i class="dot"></i><div>Garten mit Grill<small>Boule, Federball, Liegen</small></div></li>
+      <li><i class="dot"></i><div>Parkplatz vor dem Grundstück<small>E-Ladestation auf Anfrage</small></div></li>
+      <li><i class="dot"></i><div>S-Bahn Fredersdorf<small>S5, 30 Minuten bis Ostkreuz</small></div></li>
+      <li><i class="dot"></i><div>Hunde willkommen<small>wenn sie unsere Hühner in Ruhe lassen</small></div></li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="preise" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap quote">
+    <p class="eyebrow">Preise</p>
+    <h2>Fragen Sie Ihren Preis für einen individuellen Buchungswunsch an.</h2>
+    <blockquote>„Das Durchschnittliche gibt der Welt ihren Bestand, das Außergewöhnliche ihren Wert.“<footer>Oscar Wilde (1854–1900)</footer></blockquote>
+    <p class="lede">Nennen Sie uns Reisezeitraum und Personenzahl. Sie erhalten innerhalb eines Tages ein Angebot mit allen Nebenkosten.</p>
+    <a class="btn btn-primary" href="#anfrage">Preis anfragen</a>
+  </div>
+</section>
+
+<section id="verfuegbarkeit">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Verfügbarkeit</p><h2>Freie Termine auf einen Blick.</h2></div>
+      <p class="lede">Rot markierte Tage sind belegt. Für freie Termine senden Sie uns unten eine Anfrage.</p>
+    </div>
+    <!-- /wp:html -->
+<!-- wp:shortcode -->
+[wpbs id="1" title="no" legend="yes" language="de"]
+<!-- /wp:shortcode -->
+<!-- wp:html -->
+  </div>
+</section>
+
+<section id="anfrage" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Buchungsanfrage</p>
+    <h2 style="margin-bottom:10px">Wir antworten innerhalb eines Tages.</h2>
+    <p class="lede" style="margin-bottom:28px">Sie erhalten sofort eine Eingangsbestätigung per E-Mail und von uns ein Angebot mit Preis und Zahlungsinformationen.</p>
+    <div class="form-wrap">
+<!-- /wp:html -->
+<!-- wp:shortcode -->
+[contact-form-7 id="1359" title="Buchungsanfrage"]
+<!-- /wp:shortcode -->
+<!-- wp:html -->
+</div>
+  </div>
+</section>
+
+<section id="lage" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">Lage und Umgebung</p><h2>Fredersdorf bei Berlin: Seen, Wald und die S5 vor der Tür.</h2></div>
+    </div>
+    <div class="loc">
+      <div>
+        <p class="address"><strong>Sommerhaus Ella</strong><br>Familie Küster<br>Amselstr. 3<br>15370 Fredersdorf-Vogelsdorf</p>
+        <p class="note" style="margin-top:12px">Bitte parken Sie auf der Rasenfläche vor dem Friesenwall. Beim Be- und Entladen helfen wir gern.</p>
+        <div class="map" id="map" style="margin-top:24px;border:0;padding:0;background:var(--moss-soft)"><iframe src="https://www.google.com/maps?q=Amselstr.%203%2C%2015370%20Fredersdorf-Vogelsdorf&amp;output=embed" width="100%" height="100%" style="border:0;min-height:320px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Karte: Sommerhaus Ella, Amselstr. 3, Fredersdorf-Vogelsdorf"></iframe></div>
+      </div>
+      <div class="tips">
+        <h3 style="margin-top:0">Nach Berlin</h3>
+        <ul><li>S-Bahnhof Fredersdorf, S5: 30 Minuten bis Ostkreuz, 40 Minuten bis Alexanderplatz <span>· Fahrkarten am Bahnhof</span></li><li>Parken am Bahnhof ganztägig kostenlos</li></ul>
+        <h3>Baden</h3>
+        <ul><li>Strandbad Bötzsee <span>· 11 Minuten mit dem Auto</span></li><li>Freies Baden ab Spitzmühle, am Seeufer entlang <span>· parken am Seminarhaus</span></li><li>Strandbad Stienitzsee <span>· 15 Minuten</span></li></ul>
+        <h3>Ausflüge</h3>
+        <ul><li>Altstadt Strausberg und Straussee</li><li>Altstadt Altlandsberg</li><li>Galopprennbahn Hoppegarten <span>· Renntage auf hoppegarten.com</span></li><li>Alpakahof Neuenhagen <span>· Öffnungszeiten beachten</span></li><li>Reiten im Reitrevier Münchehofe</li></ul>
+        <h3>Einkaufen</h3>
+        <ul><li>Bäckerei Noebe, Altlandsberger Chaussee 1A <span>· sonntags bis 16 Uhr</span></li><li>Steinofenbäcker im Netto, Petershagener Straße 66 <span>· 7:30 bis 11:30 Uhr</span></li><li>Fleischerei A. Ottlik, Petershagener Str. 2 <span>· Fleisch und Wurst aus eigener Herstellung</span></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split flip">
+    <div class="split-media">
+      <img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-garten-rosen.jpg" width="1000" height="750" alt="Garten des Sommerhauses Ella mit rosa Rosen, Rasen und hohen Koniferen" loading="lazy">
+      <div class="caption">Der Garten im Juli. Die Hühner sind meist irgendwo im Bild.</div>
+    </div>
+    <div>
+      <p class="eyebrow">Ihre Gastgeber</p>
+      <h2>Familie Küster, ehemalige Berliner.</h2>
+      <p class="lede" style="margin-top:16px">Wir wohnen auf demselben Grundstück und geben gern Tipps für die Stadt und die Umgebung. Fragen Sie uns nach Restaurants, Radrouten oder dem besten Badeplatz am Bötzsee.</p>
+      <div class="host-grid">
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-fenster-gruen.jpg" width="675" height="900" alt="Grün gestrichenes Sprossenfenster des Ferienhauses mit Herz und Sonnenblume" loading="lazy"><figcaption>Fenster mit Herz</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-deko-rose.jpg" width="675" height="900" alt="Rote Rose in einer rosa Vase auf dem Sideboard" loading="lazy"><figcaption>Zur Begrüßung</figcaption></figure>
+        <figure><img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-deko-flaschen.jpg" width="675" height="900" alt="Braune Apothekerflaschen mit Pusteblumen als Dekoration" loading="lazy"><figcaption>Kleine Details</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap" style="max-width:820px">
+    <p class="eyebrow">Häufige Fragen</p>
+    <h2 style="margin-bottom:24px">Bevor Sie anfragen.</h2>
+    <details open><summary>Wann sind Check-in und Check-out?</summary><p>Anreise ab 15 Uhr, Abreise bis 11 Uhr. Andere Zeiten nach Absprache. Beispielzeiten, bitte bestätigen.</p></details>
+    <details><summary>Sind Hunde erlaubt?</summary><p>Ja, wenn sie unsere Hühner genauso lieben wie wir: Die drei laufen frei im Garten, ein friedlicher Hund ist herzlich willkommen. Bitte geben Sie Ihren Hund in der Anfrage an.</p></details>
+    <details><summary>Wie viele Personen passen ins Haus?</summary><p>Zwei Erwachsene im Schlafzimmer, dazu zwei Kinder bis 14 Jahre oder ein dritter Erwachsener auf dem Schlafsofa im Wohnzimmer.</p></details>
+    <details><summary>Wie erfahre ich den Preis?</summary><p>Sie senden uns Reisezeitraum und Personenzahl über das Formular, wir antworten innerhalb eines Tages mit einem Angebot inklusive aller Nebenkosten. Mit der Anzahlung ist die Buchung fest.</p></details>
+    <details><summary>Kann ich mein E-Auto laden?</summary><p>Ja, auf Anfrage stellen wir eine Ladestation für E-Autos und E-Scooter bereit. Bitte geben Sie das in der Anfrage an.</p></details>
+    <details><summary>Gibt es Bettwäsche und Handtücher?</summary><p>Ja, beides ist im Preis enthalten und liegt bei Anreise bereit. Eine Waschmaschine steht im Haus.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>Sommerhaus Ella</h4>
+      <p>Ferienhaus in Fredersdorf bei Berlin · Familie Küster · Amselstr. 3 · 15370 Fredersdorf-Vogelsdorf<br><a href="tel:+4915773836748">+49 1577 3836748</a> · <a href="mailto:mail@sommerhaus-fredersdorf.de">mail@sommerhaus-fredersdorf.de</a></p>
+      <p style="margin-top:12px"><a href="https://wa.me/4915773836748">WhatsApp</a> · <a href="https://www.instagram.com/sommerhaus_ella/">Instagram</a></p>
+    </div>
+    <div><h4>Seiten</h4><ul><li><a href="#haus">Das Haus</a></li><li><a href="#rundgang">Rundgang</a></li><li><a href="#verfuegbarkeit">Verfügbarkeit</a></li><li><a href="#lage">Anfahrt</a></li></ul></div>
+    <div><h4>Rechtliches</h4><ul><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutzerklaerung/">Datenschutzerklärung</a></li><li><a href="/geschaeftsbedingungen/">Allgemeine Geschäftsbedingungen</a></li><li><a href="/cookie-richtlinie-eu/">Cookie-Richtlinie</a></li></ul></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const el=id=>document.getElementById(id);
+  // Slider: Scroll-Snap plus Pfeile, Punkte und Zähler
+  document.querySelectorAll('.slider').forEach(sl=>{
+    const track=sl.querySelector('.track'), figs=[...track.children], dots=sl.querySelector('.dots'), count=sl.querySelector('.count');
+    if(dots) figs.forEach((_,i)=>{const d=document.createElement('i'); if(i===0)d.className='on'; dots.appendChild(d);});
+    const idx=()=>Math.round(track.scrollLeft/track.clientWidth);
+    const go=i=>{i=(i+figs.length)%figs.length; track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});};
+    const paint=()=>{const i=idx(); if(dots)[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i)); if(count)count.textContent=(i+1)+' / '+figs.length;};
+    sl.querySelector('.prev').addEventListener('click',()=>go(idx()-1));
+    sl.querySelector('.next').addEventListener('click',()=>go(idx()+1));
+    track.addEventListener('scroll',()=>{clearTimeout(track._t);track._t=setTimeout(paint,80);},{passive:true});
+    paint();
+  });
+
+})();
+</script>
+
+<!-- /wp:html -->

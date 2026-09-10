@@ -28,7 +28,7 @@ internen Details gehören in das private Repository `Sommerhaus_priv`, nicht hie
 - Impressum anlegen, Footer mit Impressum, Datenschutz und AGB.
 - AdSense entfernen.
 
-### Phase 2 – Neue Startseite in WordPress umsetzen
+### Phase 2 – Neue Startseite in WordPress umsetzen (Testseite seit 10.09.2026 unter /new live)
 Entscheidung: WordPress bleibt (Complianz, AIOSEO, Site Kit, Buchungslogik), aber ohne Elementor.
 Die neue Seite wird als Block-Theme-Seite über die REST-API angelegt, damit alles per API
 pflegbar bleibt und die Seite deutlich schneller lädt (heute 109 Requests, 1,7 MB, LCP mobil 8,9 s).
@@ -40,7 +40,9 @@ pflegbar bleibt und die Seite deutlich schneller lädt (heute 109 Requests, 1,7 
 - Title, Meta-Description, Schema.org `VacationRental`, Sitemap, Bing- und Google-Einreichung.
 
 ### Phase 3 – Anfrageformular und E-Mail-Zustellung
-Diagnose: WP Booking System sendet keine Mails. Wahrscheinlichste Ursachen: Absenderadresse nicht
+Stand 10.09.2026: Auf /new läuft Contact Form 7 mit Flamingo und Honeypot; der Testversand über
+den Browser meldete „gesendet“. Die Zustellung ins Postfach muss noch bestätigt werden.
+Diagnose alt: WP Booking System sendet keine Mails. Wahrscheinlichste Ursachen: Absenderadresse nicht
 auf der eigenen Domain, fehlende SMTP-Authentifizierung bei IONOS, oder Funktion in der
 kostenlosen Plugin-Version nicht enthalten.
 - Schritt 1: Mail-Logging-Plugin aktivieren, Testanfrage stellen, Log lesen.
