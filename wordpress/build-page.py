@@ -48,16 +48,10 @@ body = re.sub(r'<div class="preview-banner">.*?</div>',
 # Buchungszettel: echter Kalender + Formular
 booking = (
     '\n<!-- /wp:html -->\n'
-    '<!-- wp:shortcode -->\n[wpbs id="1" title="no" legend="yes" legend_position="side" language="de"]\n<!-- /wp:shortcode -->\n'
+    '<!-- wp:shortcode -->\n[wpbs id="1" form_id="1" title="no" legend="yes" legend_position="side" language="de" '
+    'selection_type="multiple" selection_style="split" history="1"]\n<!-- /wp:shortcode -->\n'
     '<!-- wp:html -->\n'
-    '<p class="note" style="margin-top:14px">Tipp: Klicken Sie im Kalender zuerst auf den Anreise- und dann auf den Abreisetag, '
-    'die Daten werden unten übernommen.</p>\n'
-    '<div class="form-wrap">\n'
-    '<!-- /wp:html -->\n'
-    '<!-- wp:shortcode -->\n[contact-form-7 id="%s" title="Buchungsanfrage"]\n<!-- /wp:shortcode -->\n'
-    '<!-- wp:html -->\n'
-    '</div>\n'
-) % ids['form_id']
+)
 body, n1 = re.subn(r'<!--BOOKING:START-->.*?<!--BOOKING:END-->', lambda m: booking, body, count=1, flags=re.S)
 
 # Karte
@@ -87,12 +81,24 @@ assert (n1, n2, n3, n4, n5) == (1, 1, 1, 1, 1), (n1, n2, n3, n4, n5)
 
 extra = (
     '<style>'
-    '.wpcf7 .form-grid label{display:block}.wpcf7-form-control-wrap{display:block}'
-    '.wpcf7-not-valid-tip{color:#B5452D;font-size:.85rem;margin-top:4px}'
-    '.wpcf7-response-output{margin:16px 0 0;padding:12px 14px;border:1px solid #D6DACF!important;border-radius:6px}'
-    '.wpcf7-acceptance .wpcf7-list-item{margin:0}.wpcf7-spinner{margin-left:10px}'
     '.paper .wpbs-container{margin:0 auto}'
     '.paper .wpbs-date[data-day]:not(.wpbs-legend-item-2){cursor:pointer}'
+    '.paper .wpbs-form-container{margin-top:28px}'
+    '.paper .wpbs-form-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}'
+    '.paper .wpbs-form-field{margin:0}'
+    '.paper .wpbs-form-field-textarea{grid-column:1/-1}'
+    '.paper .wpbs-form-field-label label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:#1F241E}'
+    '.paper .wpbs-field-required-asterisk{color:#B5452D}'
+    '.paper .wpbs-form-field-input input,.paper .wpbs-form-field-input select,.paper .wpbs-form-field-input textarea'
+    '{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1px solid #D6DACF;border-radius:6px;background:#F3F4EF;color:#1F241E;box-sizing:border-box}'
+    '.paper .wpbs-form-field-input textarea{min-height:120px;resize:vertical}'
+    '.paper .wpbs-form-field-description small{display:block;color:#5F665C;font-size:.85rem;margin-top:4px}'
+    '.paper .wpbs-form-submit-button{margin-top:22px}'
+    '.paper .wpbs-form-submit-button button{font:inherit;font-weight:600;font-size:1rem;background:#2E5A3A;color:#fff;border:0;border-radius:999px;padding:14px 24px;cursor:pointer}'
+    '.paper .wpbs-form-submit-button button:hover{background:#1E3F29}'
+    '.paper .wpbs-form-message,.paper .wpbs-form-error,.paper .wpbs-form-field-error{color:#B5452D;font-size:.9rem;margin-top:8px}'
+    '.paper .wpbs-form-success{color:#1E3F29;font-weight:600;padding:14px 16px;border:1px solid #D6DACF;border-radius:6px;margin-top:16px}'
+    '@media (max-width:600px){.paper .wpbs-form-fields{grid-template-columns:1fr}}'
     '</style>'
 )
 
