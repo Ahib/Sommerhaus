@@ -53,6 +53,20 @@
   --font-display:"Young Serif", Georgia, "Times New Roman", serif;
   --font-body:"Albert Sans", "Helvetica Neue", Arial, sans-serif;
 }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#1B1F1A; --card:#242A23; --ink:#EEEFE8; --mute:#B3B9AC; --line:#38402F;
+    --moss:#8FC49B; --moss-deep:#BBDFC4; --moss-soft:#27322A; --brick:#E8917A; --straw:#E8C877; --straw-soft:#4A3F1E; --btn-ink:#10160F;
+    --shadow:0 18px 40px -22px rgba(0,0,0,.75);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1B1F1A; --card:#242A23; --ink:#EEEFE8; --mute:#B3B9AC; --line:#38402F;
+  --moss:#8FC49B; --moss-deep:#BBDFC4; --moss-soft:#27322A; --brick:#E8917A; --straw:#E8C877; --straw-soft:#4A3F1E; --btn-ink:#10160F;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.75);
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -187,6 +201,17 @@ blockquote footer{margin-top:14px;font-family:var(--font-body);font-size:.9rem;c
 .legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
 @media (max-width:700px){.months{grid-template-columns:1fr}}
 
+/* Buchungszettel: immer hell, auch im Dunkelmodus */
+.paper{color-scheme:light;background:#FFFFFF;color:#1F241E;border:1px solid var(--line);padding:32px;box-shadow:var(--shadow);border-radius:8px}
+.paper h3,.paper label,.paper .note{color:#1F241E}
+.paper .month{background:#F7F8F4;border-color:#D6DACF}
+.paper .cal .d{background:#E3ECE3;color:#1F241E}
+.paper .cal .d.busy{background:#B5452D;color:#fff}
+.paper .cal .d.half{background:linear-gradient(135deg,#E3ECE3 50%,#B5452D 50%)}
+.paper input,.paper select,.paper textarea{background:#fff;color:#1F241E;border-color:#D6DACF}
+.paper .form-wrap{background:transparent;border:0;padding:0;box-shadow:none;max-width:none;margin-top:28px}
+.paper .legend{color:#5F665C}
+@media (max-width:600px){.paper{padding:20px}}
 /* Form */
 label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
 input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
@@ -200,8 +225,10 @@ textarea{min-height:120px;resize:vertical}
 
 /* Location */
 .loc{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.map{background:var(--moss-soft);border:1px dashed var(--moss);aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:24px}
+.map{background:var(--moss-soft);border:1px dashed var(--moss);aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:24px;position:relative;overflow:hidden}
 .map p{max-width:34ch;color:var(--mute);font-size:.95rem}
+.map.live{border:0;padding:0;display:block}
+.map.live iframe,.map.live .cmplz-placeholder-element,.map.live .cmplz-placeholder-parent{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;border:0}
 .tips h3{margin:22px 0 10px}
 .tips ul{margin:0;padding-left:18px;color:var(--ink)}
 .tips li{margin-bottom:6px}
@@ -278,7 +305,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   <div class="wrap split">
     <div class="split-media">
       <img src="assets/img/ferienhaus-fredersdorf-haus-giebel-juli.jpg" width="1000" height="539" alt="Giebelseite des Ferienhauses mit Fachwerk, grünen Fensterrahmen und Rosen" loading="lazy">
-      <div class="caption">Die Giebelseite Ihres Ferienhauses, im Juli.</div>
+      <div class="caption">Die Giebelseite Ihres Ferienhauses.</div>
     </div>
     <div>
       <p class="eyebrow">Das Haus</p>
@@ -443,20 +470,14 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 <section id="verfuegbarkeit">
   <div class="wrap">
     <div class="section-head">
-      <div><p class="eyebrow">Verfügbarkeit</p><h2>Freie Termine auf einen Blick.</h2></div>
-      <p class="lede">Der Kalender zeigt später live unsere Buchungen. Die Belegung hier ist ein Beispiel.</p>
+      <div><p class="eyebrow">Verfügbarkeit und Anfrage</p><h2>Freie Termine wählen, Anfrage senden.</h2></div>
+      <p class="lede">Rot markierte Tage sind belegt. Wählen Sie An- und Abreise im Kalender und senden Sie uns Ihre Anfrage, wir antworten innerhalb eines Tages mit einem Angebot.</p>
     </div>
-    <div class="months" id="months"></div>
-    <div class="legend"><span><i style="background:var(--moss-soft);border:1px solid var(--line)"></i>frei</span><span><i style="background:var(--brick)"></i>belegt</span><span><i style="background:linear-gradient(135deg,var(--moss-soft) 50%,var(--brick) 50%);border:1px solid var(--line)"></i>An- oder Abreisetag</span></div>
-  </div>
-</section>
-
-<section id="anfrage" style="padding-top:0">
-  <div class="wrap">
-    <p class="eyebrow">Buchungsanfrage</p>
-    <h2 style="margin-bottom:10px">Wir antworten innerhalb eines Tages.</h2>
-    <p class="lede" style="margin-bottom:28px">Sie erhalten sofort eine Eingangsbestätigung per E-Mail und von uns ein Angebot mit Preis und Zahlungsinformationen.</p>
-    <form class="form-wrap" id="anfrage-form" action="#" method="post">
+    <div class="paper" id="anfrage">
+<!--BOOKING:START-->
+      <div class="months" id="months"></div>
+      <div class="legend"><span><i style="background:#E3ECE3;border:1px solid #D6DACF"></i>frei</span><span><i style="background:#B5452D"></i>belegt</span><span><i style="background:linear-gradient(135deg,#E3ECE3 50%,#B5452D 50%);border:1px solid #D6DACF"></i>An- oder Abreisetag</span></div>
+      <form class="form-wrap" id="anfrage-form" action="#" method="post">
       <div class="form-grid">
         <div><label for="f-an">Anreise</label><input id="f-an" name="anreise" type="date" required></div>
         <div><label for="f-ab">Abreise</label><input id="f-ab" name="abreise" type="date" required></div>
@@ -472,6 +493,8 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
         <div class="full"><button class="btn btn-primary" type="submit" id="f-submit">Unverbindlich anfragen</button> <span class="note" style="margin-left:12px">In der Vorschau wird nichts gesendet.</span></div>
       </div>
     </form>
+<!--BOOKING:END-->
+    </div>
   </div>
 </section>
 
@@ -580,6 +603,17 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   }
 
   el('map-btn').addEventListener('click',()=>{el('map').innerHTML='<p>In der Vorschau wird keine Karte geladen. Live: Google-Maps-Einbettung nach Zustimmung.</p>';});
+  // Klick auf einen Kalendertag übernimmt Anreise (1. Klick) und Abreise (2. Klick) ins Formular
+  let pick=0;
+  document.addEventListener('click',e=>{
+    const wp=e.target.closest('.wpbs-date[data-day]'); const st=e.target.closest('.cal .d[title]');
+    if(!wp&&!st) return;
+    if(wp&&wp.classList.contains('wpbs-legend-item-2')) return;
+    const iso=wp?`${wp.dataset.year}-${String(wp.dataset.month).padStart(2,'0')}-${String(wp.dataset.day).padStart(2,'0')}`:st.title;
+    const an=document.getElementById('f-an'), ab=document.getElementById('f-ab'); if(!an||!ab) return;
+    if(pick===0||(an.value&&iso<=an.value)){an.value=iso;ab.value='';pick=1;}else{ab.value=iso;pick=0;}
+    [an,ab].forEach(i=>i.dispatchEvent(new Event('input',{bubbles:true})));
+  });
   el('anfrage-form').addEventListener('submit',e=>{e.preventDefault();el('f-submit').textContent='Vorschau: nichts gesendet';});
 })();
 </script>

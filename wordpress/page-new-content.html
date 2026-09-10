@@ -38,6 +38,20 @@
   --font-display:"Young Serif", Georgia, "Times New Roman", serif;
   --font-body:"Albert Sans", "Helvetica Neue", Arial, sans-serif;
 }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#1B1F1A; --card:#242A23; --ink:#EEEFE8; --mute:#B3B9AC; --line:#38402F;
+    --moss:#8FC49B; --moss-deep:#BBDFC4; --moss-soft:#27322A; --brick:#E8917A; --straw:#E8C877; --straw-soft:#4A3F1E; --btn-ink:#10160F;
+    --shadow:0 18px 40px -22px rgba(0,0,0,.75);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1B1F1A; --card:#242A23; --ink:#EEEFE8; --mute:#B3B9AC; --line:#38402F;
+  --moss:#8FC49B; --moss-deep:#BBDFC4; --moss-soft:#27322A; --brick:#E8917A; --straw:#E8C877; --straw-soft:#4A3F1E; --btn-ink:#10160F;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.75);
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -172,6 +186,17 @@ blockquote footer{margin-top:14px;font-family:var(--font-body);font-size:.9rem;c
 .legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
 @media (max-width:700px){.months{grid-template-columns:1fr}}
 
+/* Buchungszettel: immer hell, auch im Dunkelmodus */
+.paper{color-scheme:light;background:#FFFFFF;color:#1F241E;border:1px solid var(--line);padding:32px;box-shadow:var(--shadow);border-radius:8px}
+.paper h3,.paper label,.paper .note{color:#1F241E}
+.paper .month{background:#F7F8F4;border-color:#D6DACF}
+.paper .cal .d{background:#E3ECE3;color:#1F241E}
+.paper .cal .d.busy{background:#B5452D;color:#fff}
+.paper .cal .d.half{background:linear-gradient(135deg,#E3ECE3 50%,#B5452D 50%)}
+.paper input,.paper select,.paper textarea{background:#fff;color:#1F241E;border-color:#D6DACF}
+.paper .form-wrap{background:transparent;border:0;padding:0;box-shadow:none;max-width:none;margin-top:28px}
+.paper .legend{color:#5F665C}
+@media (max-width:600px){.paper{padding:20px}}
 /* Form */
 label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px}
 input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
@@ -185,8 +210,10 @@ textarea{min-height:120px;resize:vertical}
 
 /* Location */
 .loc{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.map{background:var(--moss-soft);border:1px dashed var(--moss);aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:24px}
+.map{background:var(--moss-soft);border:1px dashed var(--moss);aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:24px;position:relative;overflow:hidden}
 .map p{max-width:34ch;color:var(--mute);font-size:.95rem}
+.map.live{border:0;padding:0;display:block}
+.map.live iframe,.map.live .cmplz-placeholder-element,.map.live .cmplz-placeholder-parent{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;border:0}
 .tips h3{margin:22px 0 10px}
 .tips ul{margin:0;padding-left:18px;color:var(--ink)}
 .tips li{margin-bottom:6px}
@@ -219,7 +246,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .preview-banner{background:var(--straw);color:#1F241E;text-align:center;font-size:.85rem;padding:8px 16px;font-weight:600}
 @media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
 </style>
-<style>.wpcf7 .form-grid label{display:block}.wpcf7-form-control-wrap{display:block}.wpcf7-not-valid-tip{color:var(--brick);font-size:.85rem;margin-top:4px}.wpcf7-response-output{margin:16px 0 0;padding:12px 14px;border:1px solid var(--line)!important;border-radius:6px}.wpcf7-acceptance .wpcf7-list-item{margin:0}.wpcf7-spinner{margin-left:10px}.wpbs-container{margin-inline:auto}</style>
+<style>.wpcf7 .form-grid label{display:block}.wpcf7-form-control-wrap{display:block}.wpcf7-not-valid-tip{color:#B5452D;font-size:.85rem;margin-top:4px}.wpcf7-response-output{margin:16px 0 0;padding:12px 14px;border:1px solid #D6DACF!important;border-radius:6px}.wpcf7-acceptance .wpcf7-list-item{margin:0}.wpcf7-spinner{margin-left:10px}.paper .wpbs-container{margin:0 auto}.paper .wpbs-date[data-day]:not(.wpbs-legend-item-2){cursor:pointer}</style>
 
 <div class="preview-banner">Testseite der neuen Startseite. Noch nicht offiziell, Rückmeldungen willkommen.</div>
 <header class="top">
@@ -263,7 +290,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   <div class="wrap split">
     <div class="split-media">
       <img src="https://sommerhaus-fredersdorf.de/wp-content/uploads/2026/09/ferienhaus-fredersdorf-haus-giebel-juli.jpg" width="1000" height="539" alt="Giebelseite des Ferienhauses mit Fachwerk, grünen Fensterrahmen und Rosen" loading="lazy">
-      <div class="caption">Die Giebelseite Ihres Ferienhauses, im Juli.</div>
+      <div class="caption">Die Giebelseite Ihres Ferienhauses.</div>
     </div>
     <div>
       <p class="eyebrow">Das Haus</p>
@@ -428,29 +455,26 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 <section id="verfuegbarkeit">
   <div class="wrap">
     <div class="section-head">
-      <div><p class="eyebrow">Verfügbarkeit</p><h2>Freie Termine auf einen Blick.</h2></div>
-      <p class="lede">Rot markierte Tage sind belegt. Für freie Termine senden Sie uns unten eine Anfrage.</p>
+      <div><p class="eyebrow">Verfügbarkeit und Anfrage</p><h2>Freie Termine wählen, Anfrage senden.</h2></div>
+      <p class="lede">Rot markierte Tage sind belegt. Wählen Sie An- und Abreise im Kalender und senden Sie uns Ihre Anfrage, wir antworten innerhalb eines Tages mit einem Angebot.</p>
     </div>
-    <!-- /wp:html -->
+    <div class="paper" id="anfrage">
+
+<!-- /wp:html -->
 <!-- wp:shortcode -->
-[wpbs id="1" title="no" legend="yes" language="de"]
+[wpbs id="1" title="no" legend="yes" legend_position="side" language="de"]
 <!-- /wp:shortcode -->
 <!-- wp:html -->
-  </div>
-</section>
-
-<section id="anfrage" style="padding-top:0">
-  <div class="wrap">
-    <p class="eyebrow">Buchungsanfrage</p>
-    <h2 style="margin-bottom:10px">Wir antworten innerhalb eines Tages.</h2>
-    <p class="lede" style="margin-bottom:28px">Sie erhalten sofort eine Eingangsbestätigung per E-Mail und von uns ein Angebot mit Preis und Zahlungsinformationen.</p>
-    <div class="form-wrap">
+<p class="note" style="margin-top:14px">Tipp: Klicken Sie im Kalender zuerst auf den Anreise- und dann auf den Abreisetag, die Daten werden unten übernommen.</p>
+<div class="form-wrap">
 <!-- /wp:html -->
 <!-- wp:shortcode -->
 [contact-form-7 id="1359" title="Buchungsanfrage"]
 <!-- /wp:shortcode -->
 <!-- wp:html -->
 </div>
+
+    </div>
   </div>
 </section>
 
@@ -463,7 +487,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
       <div>
         <p class="address"><strong>Sommerhaus Ella</strong><br>Familie Küster<br>Amselstr. 3<br>15370 Fredersdorf-Vogelsdorf</p>
         <p class="note" style="margin-top:12px">Bitte parken Sie auf der Rasenfläche vor dem Friesenwall. Beim Be- und Entladen helfen wir gern.</p>
-        <div class="map" id="map" style="margin-top:24px;border:0;padding:0;background:var(--moss-soft)"><iframe src="https://www.google.com/maps?q=Amselstr.%203%2C%2015370%20Fredersdorf-Vogelsdorf&amp;output=embed" width="100%" height="100%" style="border:0;min-height:320px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Karte: Sommerhaus Ella, Amselstr. 3, Fredersdorf-Vogelsdorf"></iframe></div>
+        <div class="map live" id="map" style="margin-top:24px"><iframe src="https://www.google.com/maps?q=Amselstr.%203%2C%2015370%20Fredersdorf-Vogelsdorf&amp;output=embed" width="100%" height="100%" style="border:0;min-height:320px" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Karte: Sommerhaus Ella, Amselstr. 3, Fredersdorf-Vogelsdorf"></iframe></div>
       </div>
       <div class="tips">
         <h3 style="margin-top:0">Nach Berlin</h3>
@@ -540,6 +564,17 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
     paint();
   });
 
+  // Klick auf einen Kalendertag übernimmt Anreise (1. Klick) und Abreise (2. Klick) ins Formular
+  let pick=0;
+  document.addEventListener('click',e=>{
+    const wp=e.target.closest('.wpbs-date[data-day]'); const st=e.target.closest('.cal .d[title]');
+    if(!wp&&!st) return;
+    if(wp&&wp.classList.contains('wpbs-legend-item-2')) return;
+    const iso=wp?`${wp.dataset.year}-${String(wp.dataset.month).padStart(2,'0')}-${String(wp.dataset.day).padStart(2,'0')}`:st.title;
+    const an=document.getElementById('f-an'), ab=document.getElementById('f-ab'); if(!an||!ab) return;
+    if(pick===0||(an.value&&iso<=an.value)){an.value=iso;ab.value='';pick=1;}else{ab.value=iso;pick=0;}
+    [an,ab].forEach(i=>i.dispatchEvent(new Event('input',{bubbles:true})));
+  });
 })();
 </script>
 
