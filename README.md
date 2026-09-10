@@ -40,8 +40,10 @@ pflegbar bleibt und die Seite deutlich schneller lädt (heute 109 Requests, 1,7 
 - Title, Meta-Description, Schema.org `VacationRental`, Sitemap, Bing- und Google-Einreichung.
 
 ### Phase 3 – Anfrageformular und E-Mail-Zustellung
-Stand 10.09.2026: Auf /new läuft Contact Form 7 mit Flamingo und Honeypot; der Testversand über
-den Browser meldete „gesendet“. Die Zustellung ins Postfach muss noch bestätigt werden.
+Stand 10.09.2026: Auf /new läuft Contact Form 7 mit Flamingo und Honeypot. Zustellung bestätigt,
+die Testmails sind im Postfach der Gastgeber angekommen. WP Mail SMTP wurde probiert und wieder
+entfernt, weil es unkonfiguriert jeden Versand blockierte. Check & Log Email bleibt aktiv, damit
+jede von WordPress gesendete Mail im Backend nachvollziehbar ist (Menü „Check & Log Email“).
 Diagnose alt: WP Booking System sendet keine Mails. Wahrscheinlichste Ursachen: Absenderadresse nicht
 auf der eigenen Domain, fehlende SMTP-Authentifizierung bei IONOS, oder Funktion in der
 kostenlosen Plugin-Version nicht enthalten.
